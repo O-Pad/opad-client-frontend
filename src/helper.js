@@ -18,8 +18,6 @@ function closeFile(fileId) {
     // remove file from list of 
 }
 
-f
-
 function rabbitMQWillCallThis(message) {
     // 
     //
