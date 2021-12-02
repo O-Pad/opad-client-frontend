@@ -8,7 +8,7 @@ class App extends React.Component {
       <div className="App">
         <header className="App-header"> 
         <img src="full_logo.png" />  
-        OPad Client
+        {/* OPad Client */}
         </header>
         <Editor />
       </div>

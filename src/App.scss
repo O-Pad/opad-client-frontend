@@ -4,7 +4,7 @@
 
 .App-header {
   background-color: white;
-  min-height: 5vh;
+  height: 10vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,15 +13,10 @@
   color: #282c34;
 
   img {
-    height: 100px;
+    height: 100%;
   }
 }
 
-.OpadEditor {
-  height: 100%;
-  background-color: #282c34;
-  color: white;
-}
 
 .Editor {
   height: 100%;

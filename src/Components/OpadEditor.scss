@@ -1,43 +1,66 @@
-.tabs {
-  display: flex;
-  height: 50px;
-  background-color: rgba(40, 44, 52, 0.082);
 
-  .tab {
-    width: 200px;
-    background-color: #282c345d;
+
+
+.OpadEditor {
+  height: 100%;
+
+  .body {
+    background-color: #282c34;
     color: white;
-    text-align: left;
-    justify-content: center;
-    align-items: center;
+  }
+
+
+  .tabs {
     display: flex;
-    margin: 4px;
-    padding: 0px 10px;
-    border-radius: 10px;
-    cursor: pointer;
-
-    .tab-name {
-      text-overflow: ellipsis;
-      overflow: hidden;
-      white-space: nowrap;
-      flex: 1 1;
-    }
-
-    .close {
+    height: 32px;
+    // background-color: rgba(40, 44, 52, 0.082);
+  
+    .tab {
+      max-width: 200px;
+      height: 16px;
+      margin: 4px;
+      padding: 4px;
+      background-color: #282c34ad;
       color: white;
+      text-align: left;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      border-radius: 4px;
+      cursor: pointer;
+  
+      .tab-name {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        flex: 1 1;
+        margin: -4px 4px;
+      }
+  
+      .close {
+        color: white;
+        height: 16px;
+        width: 16px;
+      }
+  
+      .add {
+        color: white;
+        height: 16px;
+        width: 16px;
+      }
     }
-
-    .add {
-      color: white;
+  
+    .tab.selected {
+      background-color: #282c34;
+      height: 20px;
+      margin: 4px 4px 0px 4px;
+      border-radius: 4px 4px 0px 0px;
+    }
+  
+    .tab.add {
+      width: max-content;
+      padding: 0;
     }
   }
 
-  .tab.selected {
-    background-color: #282c34bb;
-  }
-
-  .tab.add {
-    width: max-content;
-    padding: 0;
-  }
 }
