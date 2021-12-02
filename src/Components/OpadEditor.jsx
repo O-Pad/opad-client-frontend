@@ -40,7 +40,8 @@ class OpadEditor extends React.Component {
     }
 
     handleInput(value) {
-        this.setState({content: value})
+        console.log(value)
+        this.setState({content: value});
     }
 
     create() {
@@ -78,7 +79,7 @@ class OpadEditor extends React.Component {
                         </IconButton>
                     </div>))
                 }
-                <div className="tab add">
+                <div className="tab">
                     <IconButton className="add" onClick={this.create}> 
                         <Add />
                     </IconButton>      
@@ -86,7 +87,7 @@ class OpadEditor extends React.Component {
             </div>
 
            {this.state.open_files.length > 0 ? (
-                <div>
+                <div className="body">
                     <Editor
                         value={this.state.content}
                         onValueChange={this.handleInput}
@@ -95,6 +96,7 @@ class OpadEditor extends React.Component {
                         style={{
                         fontFamily: '"Fira code", "Fira Mono", monospace',
                         fontSize: 12,
+                        minHeight: "calc(90vh - 32px)"
                     }}
                     />                    
                 </div>
