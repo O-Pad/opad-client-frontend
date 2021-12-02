@@ -1,12 +1,35 @@
-
-
-
 .OpadEditor {
   height: 100%;
 
   .body {
     background-color: #282c34;
     color: white;
+    font-family:'Courier New', Courier, monospace;
+    min-height: calc(90vh - 32px);
+    text-align: left;
+    .line.focus {
+      background-color: #6d7991; 
+    }    
+    .line {
+      width: 100%;
+      height: 20px;
+      display: flex;
+      .lineno {
+        padding: 0px 10px;
+        min-width: 30px;
+        background-color: #3c465a; 
+      }
+      .cursor {
+        display: none;
+      }
+      .cursor.show {
+        display: block;
+      }
+      .text {
+        white-space: pre;
+      }
+    }
+
   }
 
 
