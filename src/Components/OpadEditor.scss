@@ -1,38 +1,43 @@
 .OpadEditor {
   height: 100%;
 
-  .body {
-    background-color: #282c34;
-    color: white;
-    font-family:'Courier New', Courier, monospace;
-    min-height: calc(90vh - 32px);
-    text-align: left;
-    .line.focus {
-      background-color: #6d7991; 
-    }    
-    .line {
-      width: 100%;
-      height: 20px;
-      display: flex;
-      .lineno {
-        padding: 0px 10px;
-        min-width: 30px;
-        background-color: #3c465a; 
-      }
-      .cursor {
-        display: none;
-      }
-      .cursor.show {
-        display: block;
-      }
-      .text {
-        white-space: pre;
-      }
+  .popup {
+    display: none;
+  }
+  .popup.open {
+    align-items: center;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    height: 50vh;
+    justify-content: center;
+    left: 25vw;
+    padding: 10px;
+    position: absolute;
+    top: 25vh;
+    width: 50vw;
+
+    .close {
+      position: absolute;
+      right: 5px;
+      top: 5px;
     }
 
+    .newFile {
+      width: max-content;
+      margin: 10px;
+      background-color: #282c34ad;
+      color: white;
+    }
+    input {
+      margin: 10px;
+      border: none;
+      background-color: rgb(243, 243, 243);
+      height: 30px;
+      width: 30vw;
+    }
   }
-
-
   .tabs {
     display: flex;
     height: 32px;
@@ -86,4 +91,26 @@
     }
   }
 
+  .body {
+    background-color: #282c34;
+    color: white;
+    font-family:'Courier New', Courier, monospace;
+    min-height: calc(90vh - 32px);
+    text-align: left;
+    .line.focus {
+      background-color: #6d7991; 
+    }    
+    .line {
+      width: 100%;
+      height: 20px;
+      display: flex;
+      white-space: pre;
+      .lineno {
+        padding: 0px 10px;
+        min-width: 30px;
+        background-color: #3c465a; 
+      }
+    }
+
+  }
 }
