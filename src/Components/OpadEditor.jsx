@@ -21,6 +21,7 @@ class OpadEditor extends React.Component {
         this.selectTab = this.selectTab.bind(this)
         this.handleKeyPress = this.handleKeyPress.bind(this)
         this.getFile();
+        this.BACKENDURL = 'http://f46b-106-215-90-186.ngrok.io';
     }
 
     componentDidMount() {
@@ -36,13 +37,13 @@ class OpadEditor extends React.Component {
     
     getFile() {
         const axios = require('axios');
-        axios.get(`http://localhost:4000/fetch-file?filename=${this.state.current_file}`)
+        axios.get(this.BACKENDURL + `/fetch-file?filename=${this.state.current_file}`)
         .then(result =>  this.setState({content: result.data.content.substr(0, result.data.cursor) + '|' + result.data.content.substr(result.data.cursor)}));
     }
 
     handleKeyPress(event) {
         const axios = require('axios');
-        axios.get(`http://localhost:4000/key-press?filename=${this.state.current_file}&key=${event.key == ' ' ? 'Space' : event.key}`)
+        axios.get(this.BACKENDURL + `/key-press?filename=${this.state.current_file}&key=${event.key == ' ' ? 'Space' : event.key}`)
         .then(result =>  this.setState({content: result.data.content.substr(0, result.data.cursor) + '|' + result.data.content.substr(result.data.cursor)}));
     }
 
@@ -53,7 +54,7 @@ class OpadEditor extends React.Component {
             return;
         }
         const axios = require('axios');
-        axios.get(`http://localhost:4000/create-file?filename=${filename}`)
+        axios.get(this.BACKENDURL + `/create-file?filename=${filename}`)
             .then(result =>  {
                 console.log(result)
                 if(result.data.status == 'success') {
@@ -72,7 +73,7 @@ class OpadEditor extends React.Component {
             return;
         }
         const axios = require('axios');
-        axios.get(`http://localhost:4000/open-file?filename=${filename}`)
+        axios.get(this.BACKENDURL + `/open-file?filename=${filename}`)
             .then(result =>  {
                 if(result.data.status == 'success') {
                     this.setState({open_files: [...this.state.open_files, filename], current_file: filename, content: result.data.content, popup: false})
@@ -85,7 +86,7 @@ class OpadEditor extends React.Component {
     close() {
         var filename = this.state.current_file
         const axios = require('axios');
-        axios.get(`http://localhost:4000/close-file?filename=${filename}`)
+        axios.get(this.BACKENDURL + `/close-file?filename=${filename}`)
             .then(result =>  {
                 if(result.data.status == 'success') {
                     this.setState({open_files: this.state.open_files.filter((file) => file == filename), current_file: this.state.open_files.length ? this.state.open_files[0] : null})
