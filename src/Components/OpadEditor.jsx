@@ -83,7 +83,16 @@ class OpadEditor extends React.Component {
     }
 
     close() {
-        console.log('close');
+        var filename = this.state.current_file
+        const axios = require('axios');
+        axios.get(`http://localhost:4000/close-file?filename=${filename}`)
+            .then(result =>  {
+                if(result.data.status == 'success') {
+                    this.setState({open_files: this.state.open_files.filter((file) => file == filename), current_file: this.state.open_files.length ? this.state.open_files[0] : null})
+                } else {
+                    this.setState({alert_message: result.data.status, alert_severity: 'error'})
+                }
+            });
     }
 
     selectTab(id) {
