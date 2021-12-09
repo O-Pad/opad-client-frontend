@@ -21,7 +21,7 @@ class OpadEditor extends React.Component {
         this.selectTab = this.selectTab.bind(this)
         this.handleKeyPress = this.handleKeyPress.bind(this)
         this.getFile();
-        this.BACKENDURL = 'http://f46b-106-215-90-186.ngrok.io';
+        this.BACKENDURL = 'http://localhost:4000';
     }
 
     componentDidMount() {
