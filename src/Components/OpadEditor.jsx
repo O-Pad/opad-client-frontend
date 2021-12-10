@@ -44,6 +44,7 @@ class OpadEditor extends React.Component {
     }
 
     handleKeyPress(event) {
+        if(this.state.current_file == null || this.state.popup) return;
         const axios = require('axios');
         axios.get(this.BACKENDURL + `/key-press?filename=${this.state.current_file}&key=${event.key == ' ' ? 'Space' : event.key}`)
         .then(result =>  this.setState({content: result.data.content.substr(0, result.data.cursor) + '|' + result.data.content.substr(result.data.cursor)}));
