@@ -37,7 +37,6 @@ class OpadEditor extends React.Component {
     
     getFile() {
         if(this.state.current_file == null) return;
-        console.log(this.BACKENDURL)
         const axios = require('axios');
         axios.get(this.BACKENDURL + `/fetch-file?filename=${this.state.current_file}`)
         .then(result =>  this.setState({content: result.data.content.substr(0, result.data.cursor) + '|' + result.data.content.substr(result.data.cursor)}));
