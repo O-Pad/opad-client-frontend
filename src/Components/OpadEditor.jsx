@@ -91,7 +91,7 @@ class OpadEditor extends React.Component {
         axios.get(this.BACKENDURL + `/close-file?filename=${filename}`)
             .then(result =>  {
                 if(result.data.status == 'success') {
-                    this.setState({open_files: this.state.open_files.filter((file) => file == filename), current_file: this.state.open_files.length ? this.state.open_files[0] : null})
+                    this.setState({open_files: this.state.open_files.filter((file) => file != filename), current_file: this.state.open_files.length ? this.state.open_files[0] : null})
                 } else {
                     this.setState({alert_message: result.data.status, alert_severity: 'error'})
                 }
