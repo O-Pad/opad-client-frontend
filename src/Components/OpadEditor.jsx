@@ -98,8 +98,7 @@ class OpadEditor extends React.Component {
             });
     }
 
-    close() {
-        var filename = this.state.current_file
+    close(filename) {
         const axios = require('axios');
         axios.get(this.BACKENDURL + `/close-file?filename=${filename}`)
             .then(result =>  {
@@ -145,7 +144,7 @@ class OpadEditor extends React.Component {
                 {this.state.open_files.map((file) =>(
                     <div className={`tab ${file == this.state.current_file ? "selected" : ""}`} onClick={() => this.selectTab(file)}>
                         <div className="tab-name">{file}</div>
-                        <IconButton className="close" onClick={this.close}> 
+                        <IconButton className="close" onClick={() => this.close(file)}> 
                             <Close />
                         </IconButton>
                     </div>))
