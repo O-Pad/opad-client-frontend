@@ -38,6 +38,16 @@
       width: 30vw;
     }
   }
+  
+  .clock {
+    background-color: #282c34ad;
+    border-radius: 4px;
+    color: white;
+    padding: 10px;
+    margin: 10px;
+    width: max-content;
+  }
+
   .tabs {
     display: flex;
     height: 32px;
@@ -88,6 +98,10 @@
     .tab.add {
       width: max-content;
       padding: 0;
+    }
+
+    .tab.clock {
+      cursor: default;
     }
   }
 

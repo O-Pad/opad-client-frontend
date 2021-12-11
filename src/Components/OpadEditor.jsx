@@ -139,8 +139,10 @@ class OpadEditor extends React.Component {
                 <Button className="newFile" onClick={this.open}>Open file</Button>
                 {this.state.alert_severity ? <Alert severity={this.state.alert_severity}>{this.state.alert_message}</Alert> : ""}
             </div>
-            <div>Clock: {this.state.clock}</div>
              <div className="tabs">
+                <div className="tab clock">
+                    Lamport Clock: {this.state.clock}
+                </div>                  
                 {this.state.open_files.map((file) =>(
                     <div className={`tab ${file == this.state.current_file ? "selected" : ""}`} onClick={() => this.selectTab(file)}>
                         <div className="tab-name">{file}</div>
@@ -153,7 +155,7 @@ class OpadEditor extends React.Component {
                     <IconButton className="add" onClick={() => this.setState({popup : true})}> 
                         <Add />
                     </IconButton>      
-                </div>                      
+                </div>    
             </div>
 
            {this.state.current_file != null ? (
@@ -165,13 +167,7 @@ class OpadEditor extends React.Component {
                         </div>
                     ))}
                 </div>
-            ) : (
-                // <div>
-                //     <Button>Create new file</Button>
-                //     <Button>Open file</Button>
-                // </div>
-                ""
-            )}
+            ) :""}
         </div>
         );
     }
