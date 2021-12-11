@@ -12,7 +12,8 @@ class OpadEditor extends React.Component {
             open_files: [],
             current_file: null,
             content: null,
-            popup: true
+            popup: true,
+            clock: 0
         }
         this.getFile = this.getFile.bind(this)
         this.create = this.create.bind(this)
@@ -50,7 +51,7 @@ class OpadEditor extends React.Component {
         if(this.state.current_file != null){
             const axios = require('axios');
             axios.get(this.BACKENDURL + `/fetch-file?filename=${this.state.current_file}`)
-            .then(result =>  this.setState({content: result.data.content.substr(0, result.data.cursor) + '|' + result.data.content.substr(result.data.cursor)}));
+            .then(result =>  this.setState({clock: result.data.clock, content: result.data.content.substr(0, result.data.cursor) + '|' + result.data.content.substr(result.data.cursor)}));
         }
     }
 
@@ -139,7 +140,7 @@ class OpadEditor extends React.Component {
                 <Button className="newFile" onClick={this.open}>Open file</Button>
                 {this.state.alert_severity ? <Alert severity={this.state.alert_severity}>{this.state.alert_message}</Alert> : ""}
             </div>
-
+            <div>Clock: {this.state.clock}</div>
              <div className="tabs">
                 {this.state.open_files.map((file) =>(
                     <div className={`tab ${file == this.state.current_file ? "selected" : ""}`} onClick={() => this.selectTab(file)}>
